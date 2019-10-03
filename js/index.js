@@ -53,9 +53,22 @@ let middle = document.getElementById("middle-img");
 middle.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
 let node = document.createElement("BR");
+/*
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+*/
 let ctaText = document.querySelector(".cta-text h1");
-ctaText.textContent= siteContent["cta"]["h1"];
-ctaText.appendChild(node);
+ctaText.textContent = siteContent["cta"]["h1"];
+let str = ctaText.textContent.split(" ");
+ctaText.innerHTML = str[0] + "<br>" + str[1] + "<br>" + str[2];
+
+
+
+//ctaText.appendChild(node);
 //ctaText.style.width = '150px';
 
 ctaText = document.querySelector(".cta-text button");
